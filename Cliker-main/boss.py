@@ -22,3 +22,17 @@ class Boss:
 
     def is_clicked(self, pos):
         return False
+
+    def hp_boss(self, health, screen):
+        f1 = pygame.font.Font(None, 36)
+        text1 = f1.render("HP  " + str(self.health), True,
+                          (0, 0, 0))
+        screen.blit(text1, (515, 300))
+
+    def attack(self, health, screen):
+        f1 = pygame.font.Font(None, 36)
+        if self.health != 0:
+            self.health -= 1
+        elif self.health == 0:
+            text1 = f1.render("HP" + str("Вы смогли!"), True, (0, 0, 0))
+            screen.blit(text1, (515, 300))
